@@ -52,6 +52,9 @@ static int handle_packet(void *ctx, void *data, size_t size)
         }
     }
     printf("[%s] %s:%d -> Port %d (%s)\n", action, inet_ntoa(addr), ntohs(e->src_port), ntohs(e->dst_port), e->protocol);
+    if (e->isScanner){
+        printf("PORT SCAN DETECTED: %s has been blocklisted\n", inet_ntoa(addr));
+    }
     return 0;
 }
 
