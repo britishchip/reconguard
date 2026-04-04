@@ -59,7 +59,7 @@ int load_blocked_ports(char *filename){
     int port;
     memset(blocked_ports, 0, sizeof(blocked_ports));
 
-    FILE *f = fopen(filename, "r");
+    FILE *f = fopen(filename, "a+");
     if(f == NULL){
         fprintf(stderr, "Could not open %s: %s.\n", filename, strerror(errno));
         return 1;
