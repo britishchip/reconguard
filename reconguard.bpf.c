@@ -143,6 +143,12 @@ int reconguard(struct xdp_md *ctx) {
 
     __u8 *is_offender = bpf_map_lookup_elem(&Blocked_IPs, &ev->src_ip);
 
+    // disregard noise traffic
+    if (is_offender != NULL){
+        bpf_ringbuf_discard(ev, 0);
+        operation = XDP_DROP;
+        goto done;
+    }
     __u8 *is_whitelisted = bpf_map_lookup_elem(&Whitelist, &ev->src_ip);
 
     if (proto_type == IPPROTO_TCP){
