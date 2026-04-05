@@ -33,12 +33,9 @@ static int handle_packet(void *ctx, void *data, size_t size)
 {
 
     struct NetworkEvent *e = (struct NetworkEvent *)data;
-    char action[17];
-    if (e->action == 1){
-        strcpy(action, "\x1b[31mBLOCKED\x1b[0m");
-    } else {
-        strcpy(action, "\x1b[32mALLOWED\x1b[0m");
-    }
+    char *action = e->action == 1
+        ? "\x1b[31mBLOCKED\x1b[0m"
+        : "\x1b[32mALLOWED\x1b[0m";
     
     // designated initializer syntax, pretty cool
     struct in_addr addr = {.s_addr = e->src_ip};
@@ -129,6 +126,7 @@ int load_blocklist(char *filename){
             i++;
         } else{
             fprintf(stderr, "Error: %s\n", strerror(errno));
+            fclose(f);
             return -1;
         }
 
@@ -161,6 +159,7 @@ int load_whitelist(char *filename){
             i++;
         } else{
             fprintf(stderr, "Error: %s\n", strerror(errno));
+            fclose(f);
             return -1;
         }
 
