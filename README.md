@@ -111,7 +111,8 @@ Two constants in `reconguard.bpf.c` control scan detection sensitivity:
 #define PORT_THRESHOLD  90                      // unique ports before flagging
 ```
 
-The detection parameters: time window, threshold values, and scan classification logic, are informed by Cisco's port scan inspector documentation for Firewall Threat Defense.
+The detection parameters: time window, threshold values, and scan classification logic, are informed by [Cisco's port scan inspector documentation for Firewall Threat Defense.](https://www.cisco.com/c/en/us/td/docs/security/cdo/cloud-delivered-firewall-management-center-in-cdo/managing-firewall-threat-defense-services-with-cisco-defense-orchestrator/advanced-access-threat-detection.html)
+
 ---
 
 ## Maps
