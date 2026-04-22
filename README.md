@@ -8,7 +8,7 @@ An XDP-based network intrusion detecton and prevention tool focused on reconnais
 
 ReconGuard attaches an XDP program to a network interface and inspects every incoming TCP and UDP packet. It maintains per-IP (IPv4 only) state to detect port scanning behavior, and drops offending traffic in-kernel without any userspace round-trip.
 
-<img width="2171" height="1059" alt="shapes at 26-04-22 15 35 40" src="https://github.com/user-attachments/assets/a1f96b9f-770c-477d-ac30-c7312f2006a3" />
+<img width="2171" height="1059" alt="shapes at 26-04-22 22 00 55" src="https://github.com/user-attachments/assets/5d76e295-0cfa-4f1d-a735-4232daafd969" />
 
 
 ### Port Scan Detection
