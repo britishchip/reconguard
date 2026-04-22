@@ -8,23 +8,8 @@ An XDP-based network intrusion detecton and prevention tool focused on reconnais
 
 ReconGuard attaches an XDP program to a network interface and inspects every incoming TCP and UDP packet. It maintains per-IP (IPv4 only) state to detect port scanning behavior, and drops offending traffic in-kernel without any userspace round-trip.
 
-```
-Incoming packet
-      ↓
-   XDP hook (kernel)
-      ↓
-  ┌─────────────────────────────┐
-  │  Blocked IP?   → XDP_DROP  │
-  │  Blocked port? → XDP_DROP  │
-  │  Port scan?    → XDP_DROP  │
-  │  Otherwise     → XDP_PASS  │
-  └─────────────────────────────┘
-      ↓
-  Ring buffer event → userspace
-      ↓
-  Terminal output + blocklist update
-```
-TODO: insert architcture diagram here
+<img width="2171" height="1059" alt="shapes at 26-04-22 15 35 40" src="https://github.com/user-attachments/assets/a1f96b9f-770c-477d-ac30-c7312f2006a3" />
+
 
 ### Port Scan Detection
 
